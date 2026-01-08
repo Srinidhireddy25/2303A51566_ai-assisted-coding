@@ -1,4 +1,5 @@
-#write a program to check whether the given number is prime or not without using functions
+#task-01
+# #write a program to check whether the given number is prime or not without using functions
 #take input from user
 num = int(input("Enter a number: "))
 if num > 1:
@@ -26,4 +27,35 @@ if is_prime(num):
     print(f"{num} is a prime number.")
 else:
     print(f"{num} is not a prime number.")
-#task-03
+
+
+#generate fibonocci series using iterative function in a given range
+
+def fibonacci_iterative(n):
+    fib_series = []
+    a, b = 0, 1
+    for _ in range(n):
+        fib_series.append(a)
+        a, b = b, a + b
+    return fib_series
+num_terms = int(input("Enter the number of terms in Fibonacci series: "))
+fib_series = fibonacci_iterative(num_terms)
+print("Fibonacci series:")
+for num in fib_series:
+    print(num)
+
+
+#generate fibonocci series using recursive function in a given range
+
+def fibonacci_recursive(n, a=0, b=1, fib_series=None):
+    if fib_series is None:
+        fib_series = []
+    if n > 0:
+        fib_series.append(a)
+        return fibonacci_recursive(n - 1, b, a + b, fib_series)
+    return fib_series
+num_terms = int(input("Enter the number of terms in Fibonacci series: "))
+fib_series = fibonacci_recursive(num_terms)
+print("Fibonacci series:")
+for num in fib_series:
+    print(num)
